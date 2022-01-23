@@ -13,13 +13,15 @@ import {putRequest} from "./utils/api";
 import {deleteRequest} from "./utils/api";
 import {getRequest} from "./utils/api";
 import {initMenu} from "./utils/menus";
+import {rsaEncrypt} from "./utils/rsa";
+
 
 Vue.prototype.postRequest=postRequest;
 Vue.prototype.postKeyValueRequest=postKeyValueRequest;
 Vue.prototype.putRequest=putRequest;
 Vue.prototype.deleteRequest=deleteRequest;
 Vue.prototype.getRequest=getRequest;
-
+Vue.prototype.rsaEncrypt=rsaEncrypt;
 Vue.config.productionTip = false
 
 Vue.use(ElementUI);

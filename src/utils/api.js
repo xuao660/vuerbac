@@ -8,7 +8,14 @@ axios.interceptors.request.use(config =>{
     console.log('进入request拦截');
     console.log('config：'+config.url);
     let index = config.url.indexOf('?');
-    let requestUrl = config.url.substring(0,index);
+    let requestUrl='';
+    console.log('index:'+index)
+    if(index==-1){
+         requestUrl=config.url;
+    }else{
+         requestUrl = config.url.substring(0,index);
+
+    }
     console.log('requestUrl:'+requestUrl)
 
     if(requestUrl=='/get/login'){
@@ -22,6 +29,10 @@ axios.interceptors.request.use(config =>{
     if(requestUrl   =='http://localhost:8088/oauth/token'){
         console.log('刷新token请求');
         window.sessionStorage.removeItem('token');
+        return config;
+    }
+    if(requestUrl  =='http://localhost:8088/get/publickey'){
+        console.log('获取公钥请求');
         return config;
     }
     if(config.url== '/logout'){
