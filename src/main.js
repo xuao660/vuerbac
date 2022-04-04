@@ -37,6 +37,7 @@ router.beforeEach((to,from,next) =>{
     }else{
       next('/?redirect='+to.path);
     }
+
   }
 })
 new Vue({
