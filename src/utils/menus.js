@@ -35,6 +35,7 @@ export const formatRoutes =(routes)=> {
             meta:meta,
             children:children,
             //component字段应该是一个对象而不是字符串，所以通过路径动态加载
+            //require()：
             component(resolve){
                 if(component.startsWith("Home")) {
                     require(['../views/'+component + '.vue'], resolve);
@@ -52,6 +53,8 @@ export const formatRoutes =(routes)=> {
                         require(['../views/product/' +component+'.vue'],resolve);
                 }else if(component.startsWith("Order")){
                     require(['../views/order/' +component+'.vue'],resolve);
+                }else if(component.startsWith("Sys")){
+                    require(['../views/system/' +component+'.vue'],resolve);
                 }
 
             }

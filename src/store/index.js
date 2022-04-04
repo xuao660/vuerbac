@@ -10,13 +10,7 @@ export default new Vuex.Store({
     state:{
         routes:[],
         token:'',
-        // token:{
-        //     access_token:"",
-        //     token_type:"",
-        //     refresh_token:"",
-        //     expires_in:"",
-        //     scope:""
-        // }
+
     },
     mutations:{
         initRoutes(state,data){

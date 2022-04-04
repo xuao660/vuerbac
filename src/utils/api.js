@@ -63,18 +63,17 @@ axios.interceptors.request.use(config =>{
                 }).catch(res => {
                     console.error('refresh token error: ')
                 })
-                // return config;
             token=JSON.parse(sessionStorage.getItem('token'));
             config.headers.Authorization = 'Bearer '+token.access_token;
             console.log('if中发送的请求：'+config.url+' token:'+token.access_token)
-            //return config;
         }else{
             token=JSON.parse(sessionStorage.getItem('token'));
             if(token.access_token){
 
-                console.log(config.url+'添加token：'+token.access_token);
+                console.log(config.url+'  添加token：'+token.access_token);
                 config.headers.Authorization = 'Bearer '+token.access_token;
             }
+            console.log(config)
             return config;
         }
     }
@@ -149,7 +148,7 @@ let base='';
             if(resp){
                 console.log("打印resp："+JSON.stringify(resp))
                 window.sessionStorage.setItem('token',JSON.stringify(resp));
-                let time=Date.now()+20*1000;
+                let time=Date.now()+10*1000;
                 console.log('刷新time:'+time)
                 console.log('刷新now:'+Date.now())
                 window.localStorage.setItem('time',time)
