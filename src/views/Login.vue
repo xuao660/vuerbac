@@ -24,7 +24,7 @@ export default {
   data(){
     return{
       loginForm: {
-        username:'lisi',
+        username:'admin',
         password:'123456Aa'
       },
       checked:true,
